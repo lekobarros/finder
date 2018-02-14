@@ -1,0 +1,106 @@
+﻿
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8" />
+	<!-- IE Configs -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<!-- Mobile Viewport Configs -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<!-- Page Title and Description -->
+	<title>Finder</title>
+	<meta name="description" content="An implementation of MusiXMatch animation." />
+	<meta name="keywords" content="template, web design, html, javascript, layout, css, slide out" />
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Poppins:400,700" rel="stylesheet">
+	
+	<!-- Favicon Configs -->
+	<link rel="shortcut icon"	href="icon.png" />
+	<link rel="icon" 			href="icon.png" />
+	
+	<!-- CSS Path -->
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="loading">
+	<svg class="hidden">
+		<symbol id="icon-microphone" viewBox="0 0 490.9 490.9">
+			<title>microphone</title>
+			<path d="M245.5,322.9c53,0,96.2-43.2,96.2-96.2V96.2c0-53-43.2-96.2-96.2-96.2s-96.2,43.2-96.2,96.2v130.5
+			C149.3,279.8,192.5,322.9,245.5,322.9z M173.8,96.2c0-39.5,32.2-71.7,71.7-71.7s71.7,32.2,71.7,71.7v130.5
+			c0,39.5-32.2,71.7-71.7,71.7s-71.7-32.2-71.7-71.7V96.2z" />
+			<path d="M94.4,214.5c-6.8,0-12.3,5.5-12.3,12.3c0,85.9,66.7,156.6,151.1,162.8v76.7h-63.9c-6.8,0-12.3,5.5-12.3,12.3
+			s5.5,12.3,12.3,12.3h152.3c6.8,0,12.3-5.5,12.3-12.3s-5.5-12.3-12.3-12.3h-63.9v-76.7c84.4-6.3,151.1-76.9,151.1-162.8
+			c0-6.8-5.5-12.3-12.3-12.3s-12.3,5.5-12.3,12.3c0,76.6-62.3,138.9-138.9,138.9s-138.9-62.3-138.9-138.9
+			C106.6,220,101.2,214.5,94.4,214.5z" />
+		</symbol>
+		<symbol id="icon-matched" viewBox="0 0 406.834 406.834">
+			<title>Matched</title>
+			<polygon points="385.621,62.507 146.225,301.901 21.213,176.891 0,198.104 146.225,344.327 406.834,83.72 "/>
+		</symbol>
+		<symbol id="icon-back" viewBox="0 0 476.213 476.213">
+			<title>Back</title>
+			<polygon points="476.213,223.107 57.427,223.107 151.82,128.713 130.607,107.5 0,238.106 130.607,368.714 151.82,347.5
+			57.427,253.107 476.213,253.107" />
+		</symbol>
+		<symbol id="icon-repeat" viewBox="0 0 423.642 423.642">
+			<title>Repeat</title>
+			<path d="M342.369,37.498h43.755v-30H272.128v113.995h30V46.501c78.268,44.711,113.054,141.985,77.673,227.401  
+			c-28.973,69.949-96.829,112.248-168.216,112.242c-23.142-0.002-46.667-4.45-69.343-13.842c-44.869-18.586-79.815-53.532-98.4-98.401
+			c-18.585-44.869-18.585-94.29,0-139.159l-27.717-11.48c-44.696,107.907,6.729,232.059,114.636,276.756 
+			c26.424,10.945,53.818,16.126,80.784,16.125c83.158-0.001,162.221-49.278,195.972-130.762  
+			C444.692,195.637,415.368,94.662,342.369,37.498z" />
+		</symbol>
+	</svg>
+	
+	<main>
+		<div class="sections isWaiting">
+			<!-- section-listen -->
+			<div class="section-listen">
+				<button class="section-listen__button">
+					<svg class="icon"><use xlink:href="#icon-microphone"></use></svg>
+				</button>
+				<div class="section-listen__borders">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="section-listen__waves">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<!-- section-matched -->
+			<div class="section-matched">
+				<div class="matched__artist matched--item">0</div>
+				<div class="matched__track matched--item">1</div>
+			</div>
+			<!-- section-lyrics -->
+			<div class="section-lyrics">
+				<header class="lyric-header">
+					<div class="lyric-header__picture">
+						<img src="" />
+					</div>
+					<div class="lyric-header__track">
+						<div class="track-artist"></div>
+						<div class="track-name"</span></div>
+					</div>
+				</header>
+				<div class="lyric-menu">
+					<a class="lyric-menu__item lyric-menu__reset" href="#"><svg class="icon"><use xlink:href="#icon-repeat"></use></svg></a>
+				</div>
+				<div class="lyric-body">
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
