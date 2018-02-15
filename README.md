@@ -1,5 +1,6 @@
 # Finder
 Small animated experiment and training CSS and JS, inspired by MusiXMatch APP music identifier.
+[Demo](https://lekobarros.github.io/finder/)
 
 ## Features:
 - CSS Grid and Flexbox.
