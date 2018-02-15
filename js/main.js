@@ -1,6 +1,18 @@
 	// visibilityChange
-	
-	let options = {
+/**
+ * main.js
+ * https://github.com/lekobarros/finder
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2018, Alex Vaconcelos
+ * https://github.com/lekobarros/
+ */
+;(function(window){
+	'use strict';
+ 
+	var options = {
 		"icons" : ["icon-microphone", "icon-matched"],
 		"gradients" : [
 			["#08AEEA", "#2AF598"],
@@ -46,8 +58,19 @@
 					"lyric" : "I can hear your thoughts\r\nPlease don't leave me now\r\nI can't sleep alone\r\nChasing the light until the dawn"
 				}
 			}
+			,
+			{
+				"name" : "Galantis",
+				"picture" : "img/profiles/galantis.jpg",
+				"track" : {
+					"id" : 2,
+					"name" : "Hey Alligator",
+					"album" : "The Aviary",
+					"lyric" : "Hold me tight and pull me under\r\nYou let me drown, you let me dream\r\nWell you should know by now my heart is in your teeth."
+				}
+			}
 		]
-	}
+	};
 	
 	var globalTrack;
 	
@@ -60,7 +83,7 @@
 		iconMicrophone =		options.icons[0],
 		iconMatched = 			options.icons[1];
 	
-	const /* Player Match */
+	const /* Consts .isMatched + .isLyrics  */
 		matchedTrackArtist = 	document.querySelector('.matched__artist'),
 		matchedTrackName =		document.querySelector('.matched__track'),
 		cardLyric = 			document.querySelector('.section-lyrics'),
@@ -69,6 +92,7 @@
 		lyricTrackName =		document.querySelector('.lyric-header__track .track-name'),
 		lyricTrackLyric =		document.querySelector('.lyric-body p');
 		
+	/* Functions find track */
 	function getTrackData(dataRand){
 		var /* vars */
 			array = data.artist,
@@ -120,16 +144,7 @@
 		}
 	}
 	
-	/* Functions */
-	function setMatchStats(stats){
-		if( stats === 'isWaiting' || getMatchStats() == (0 || 3)){
-		}
-		else if( stats === 'isListeling' || getMatchStats() == 1 ){
-		}
-		else if( stats === 'isMatched' || getMatchStats() == 2 ){
-		}
-	}
-	
+	/* Functions control sections */
 	function getMatchStats(){
 		var query = sectionListen.className;
 		
@@ -154,7 +169,7 @@
 		return buttonPlayerSvgPatch.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#${icon}`);
 	}
 				
-	/* Call Player */
+	/* Call class and functions section */
 	function callListeling(){
 		var trackRand = Math.floor(Math.random() * data.artist.length);
 		globalTrack = new Track(getTrackData(trackRand));	
@@ -203,3 +218,5 @@
 		ev.preventDefault();
 		callReset();	
 	});
+	
+})(window);

@@ -1,4 +1,4 @@
-# Finder | Animation
+# Finder | Animation 1.3
 
 
 
