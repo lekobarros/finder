@@ -1,4 +1,3 @@
-	// visibilityChange
 /**
  * main.js
  * https://github.com/lekobarros/finder
@@ -9,6 +8,7 @@
  * Copyright 2018, Alex Vaconcelos
  * https://github.com/lekobarros/
  */
+ 
 ;(function(window){
 	'use strict';
  

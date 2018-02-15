@@ -12,6 +12,7 @@ body{
 	--color-dark: #000000;
 	--color-white: #FFFFFF;
 	--color-mercury: #E2E2E2;
+	--color-torch-red: #FC2043;
 	/* The CSS */
 	background: var(--color-bg-main);
 	font-family: 'Roboto', sans-serif;
@@ -49,6 +50,30 @@ button{
 		outline: none;
 	}
 	
+/* Nav Github */
+.links-github{
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 32px;
+	height: 32px;
+}
+	.links-github__item{
+		display: inline-block;
+		flex: 1;
+		margin: .25rem;
+		color: var(--color-torch-red);
+	}	
+	.links-github__item:hover{
+		opacity: .8;
+	}	
+	.links-github__item svg{
+		width: 1.5em;
+		height: 1.5em;
+		fill: currentColor;
+	}
+
 /* Main section */
 .sections{
 	display: grid;
