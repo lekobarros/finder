@@ -13,7 +13,7 @@ Small animated experiment and training CSS and JS, inspired by MusiXMatch APP mu
 ## Credits
 - Images by [Last.FM](https://www.last.fm/)
 - SVG Icons by [Flaticon](https://www.flaticon.com)
-- Animation by [MusicXMath](https://www.musixmatch.com/pt-br)
+- Original animation by [MusicXMath](https://www.musixmatch.com/pt-br)
 - Helpers [Codrops](http://www.codrops.com)
 
 ## License
