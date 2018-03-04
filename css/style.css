@@ -399,6 +399,7 @@ button{
 		border-radius: 500px;
 		opacity: 0;
 		visibility: hidden;
+		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
 	}
 	/* Section-lyrics header Artist info */
 	.lyric-header .lyric-header__track{
@@ -406,6 +407,7 @@ button{
 		text-align: center;
 		opacity: 0;
 		visibility: hidden;
+		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
 	}
 	.lyric-header__track .track-artist, 
 	.lyric-header__track .track-name{
