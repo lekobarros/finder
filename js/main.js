@@ -77,6 +77,7 @@
 	const /* Consts */
 		sectionListen = 		document.querySelector('.sections'),
 		buttonPlayer = 			document.querySelector('.section-listen__button'),
+		buttonWavesContainer =	document.querySelector('.section-listen__waves'),
 		buttonWaves = 			document.querySelectorAll('.section-listen__waves > span'),
 		buttonPlayerSvgPatch =	document.querySelector('.section-listen__button > svg > use'),
 		buttonResetPlayer =		document.querySelector('.lyric-menu > .lyric-menu__reset'),
@@ -206,6 +207,17 @@
 		changeIconNS(iconMicrophone);
 		sectionListen.classList.remove('isLyrics');
 		sectionListen.classList.add('isWaiting');
+		
+		// Fix Bug: The wave animation, where after "restart" a continuous animation from where it was stopped.
+		var wavesCount = buttonWaves.length;
+		
+		for (var i = 0; i < wavesCount; i++){
+			buttonWaves[i].remove()			
+		}
+		for (var i = 0; i < wavesCount; i++){
+			var span = document.createElement("span")
+			buttonWavesContainer.appendChild(span);
+		}
 	}
 	
 	/* EventListener in Button */
