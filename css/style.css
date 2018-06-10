@@ -1,4 +1,15 @@
-*, *::after, *::before{
+/**
+ * style.css
+ * https://github.com/lekobarros/finder
+ * version: 2.0.1
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2018, Alex Vaconcelos
+ * https://github.com/lekobarros/
+ */
+ *, *::after, *::before{
 	box-sizing: border-box;
 }
 html, body{
@@ -13,6 +24,7 @@ body{
 	--color-white: #FFFFFF;
 	--color-mercury: #E2E2E2;
 	--color-torch-red: #FC2043;
+	--color-pickled-bluewood: #2C3E50;
 	/* The CSS */
 	background: var(--color-bg-main);
 	font-family: 'Roboto', sans-serif;
@@ -35,7 +47,7 @@ a{
 	overflow: hidden;
 	width: 0;
 	height: 0;
-	pointer-events: noner;
+	pointer-events: none;
 }
 button{
 	border: 0;
@@ -51,479 +63,435 @@ button{
 	}
 	
 /* Nav Github */
-.links-github{
+.header__container{
 	display: flex;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
-	width: 64px;
-	height: 64px;
-	font-size: 32px;
+	padding: 0 .5em;
+	width: 100%;
+	height: 4em;
+	flex-direction: row;
+	align-items: center;
 }
-	.links-github__item{
-		flex: 1;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: .25rem;
-		color: var(--color-torch-red);
-		transition: all .5s ease-in-out;
-	}	
-	.links-github__item:hover{
-		opacity: .8;
-	}	
-	.links-github__item svg{
-		width: 1.5em;
-		height: 1.5em;
-		fill: currentColor;
-	}
+/* Hidden itens */
+.header__reset, 
+.header__track{
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Header reset track */
+.header__reset, .header__reset svg{
+	height: 64px;
+    width: 64px;
+    transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.header__reset svg{
+	padding: 1.5em;
+	cursor: pointer;
+}
+/* Header track name */
+.header__track{
+	display: flex;
+	height: 64px;
+	flex-direction: row;
+}
+.header__track .track__image{
+    display: flex;
+    margin-right: .5em;
+    height: 4em;
+    flex-direction: column;
+    justify-content: center;
+}
+.header__track .track__image img{
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 3px;
+}
+.header__track .track__title{
+	display: flex;
+	height: 64px;
+	flex-direction: column;
+	justify-content: center;
+}
+.track__title > .track__name{
+	font-weight: bold;
+}
+
+/* header navbar */
+.header__navlinks{
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+.header__navlinks a{
+	display: flex;
+	margin: .25em;
+	width: .75em;
+	height: .75em;
+	font-size: 2em;
+	justify-content: center;
+	transition: all .5s ease-in-out;
+}
+.header__navlinks a:hover{
+	color: var(--color-torch-red);
+}	
+.header__navlinks a svg{
+	fill: currentColor;
+}
+
 
 /* Main section */
-.sections{
-	display: grid;
-	width: 1170px;
+.section{
+	display: flex;
+	width: calc(100% - 4em);
 	height: 100vh;
-	margin: 0 auto;
+	margin: 4em auto 0;
 	color: var(--color-mine-shaft);
-	grid-template-columns:	234px 234px 234px 234px 234px;
-	grid-template-rows: 	25% 25% 25% 25%;
 	overflow: hidden;
 }
 
-/* Section-listen */
-.section-listen{
+/* .section__listen */
+.section__listen{
 	position: relative;
-	grid-area: 2 / 2 / 4 / 5;
-	align-self: center;
-    justify-self: center;
+	top: 4em;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	width: 100%;
+    height: calc(100vh - 4em);
 }
-	/* The main button */
-	.section-listen .section-listen__button{
-		--buttonSize: 6rem;
-		position: relative;
-		z-index: 1;
-		width: var(--buttonSize);
-		height: var(--buttonSize);
-		color: var(--color-white);
-		background: #fc2043;
-		background: -moz-linear-gradient(top, #ff6235# 0%, #fc2043 100%);
-		background: -webkit-linear-gradient(top, #ff6235 0%,#fc2043 100%);
-		border-radius: 500px;
-	}
-	.section-listen .section-listen__button .icon{
-		width: 3em;
-		height: 3em;
-		fill: currentColor;
-	}
-	
-	/* The Borders */
-	.section-listen .section-listen__borders > span{
-		--buttonSize: 6rem;
-		position: absolute;
-		border: 2px solid rgba(253, 094, 052, .25);
-		border-radius: 500px;
-		opacity: .05;
-		visibility: visible;		
-	}	
-	.section-listen .section-listen__borders > span:nth-child(1){
-		--size: 6rem;
-		top:  calc((var(--size) / 2) * -1);
-		left: calc((var(--size) / 2) * -1);
-		width: calc(var(--size) * 2);
-		height: calc(var(--size) * 2);
-		animation-delay: .2s;
-	}	
-	.section-listen .section-listen__borders > span:nth-child(2){
-		--size: 10rem;
-		top:  calc( (var(--size) - (var(--buttonSize) / 2)) * -1);
-		left: calc((var(--size) - (var(--buttonSize) / 2)) * -1);
-		width: calc(var(--size) * 2);
-		height: calc(var(--size) * 2);
-		animation-delay: 1s;
-	}
-	.section-listen .section-listen__borders > span:nth-child(3){
-		--size: 14rem;
-		top:  calc((var(--size) - var(--buttonSize) / 2) * -1);
-		left: calc((var(--size) - var(--buttonSize) / 2) * -1);
-		width: calc(var(--size) * 2);
-		height: calc(var(--size) * 2);
-		animation-delay: 1.8s;
-	}
-	
-	/* The Waves */
-	.section-listen__waves{
-		position: absolute;
-		top: 0;
-		z-index: 0;		
-		width: 6rem;
-		height: 6rem;
-	}	
-	.section-listen__waves span{
-		display: block;
-		position: absolute;
-		width: 6rem;
-		height: 6rem;
-		background: #fc2043;
-		background: -moz-linear-gradient(top, #ff6533 0%, #fc2244 100%);
-		background: -webkit-linear-gradient(top, #ff6533 0%,#fc2244 100%);
-		border-radius: 500px;
-		opacity: 0;
-	}
-	.section-listen__waves span:nth-child(1){
-		animation: wavesColorUp 2s linear 0s infinite;
-	}	
-	.section-listen__waves span:nth-child(2){
-		animation: wavesColorUp 2.5s linear .5s infinite;
-	}	
-	.section-listen__waves span:nth-child(3){
-		animation: wavesColorUp 2s linear 1s infinite;
-	}	
-	.section-listen__waves span:nth-child(4){
-		animation: wavesColorUp 2s linear 1.5s infinite;
-	}	
-	.section-listen__waves span:nth-child(5){
-		animation: wavesColorUp 2s linear 1.2s infinite;
-	}
-	
-	/* Mode: isWaiting */
-	.isWaiting .section-listen__borders{
-		position: absolute;
-		top: 0;
-		z-index: 0;		
-		width: 6rem;
-		height: 6rem;
-		opacity: 1;
-		visibility: visible;	
-	}	
-	.isWaiting .section-listen__borders > span{
-		animation: wavesBorderOpacity 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite;
-	}	
-	.isWaiting .section-listen__waves{
-		opacity: 0;
-		visibility: hidden;
-	}	
-	.isWaiting .section-listen__waves span{
-		animation-play-state: paused;
 
-	}
-	
-	/* Mode: isListeling */
-	.isListeling .section-listen__button{
-		animation: buttonScaleUp .5s linear 1s infinite;
-	}	
-	.isListeling .section-listen .section-listen__borders,
-	.isMatched .section-listen .section-listen__borders{
-		opacity: 0;
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		visibility: hidden;
-	}
-	.isListeling .section-listen__waves{
-		opacity: 1;
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		visibility: visible;
-	}
-	.isListeling .section-listen__waves > span{
-		animation-play-state: running;
-		visibility: visible;
-	}
-	
-	/* Mode: isMatched */
-	.isMatched .section-listen__button > svg{
-		animation: iconTransform .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	}
-	.isMatched .section-listen__waves span{
-		animation-duration: 1.5s;
-		animation-iteration-count: 2;
-		animation-direction: reverse;
-	}
-	
-	/* Mode: isLyrics */
-	.isLyrics .section-listen__button{
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		opacity: 0;
-		visibility: hidden;
-	}
-	.isLyrics .section-listen__waves span{
-		animation-play-state: paused;
-		opacity: 0;
-		visibility: hidden;
-	}
-		
-	/* Animations & Keyframes */
-	@keyframes buttonScaleUp{
-		0%{
-			transform: scale(1);
-		}
-		25%{
-			transform: scale(1.1);
-		}
-		50%{
-			transform: scale(1);
-		}
-		100%{
-			transform: scale(1);
-		}
-	}
-	@keyframes wavesBorderOpacity{
-		0%{
-			opacity: .05;
-		}
-		50%{
-			opacity: 1;
-		}
-		100%{
-			opacity: .05;
-		}
-	}
-	@keyframes wavesColorUp{
-		0%{
-			transform: scale(1);
-			opacity: .75;
-		}
-		50%{
-			transform: scale(2);
-			opacity: .5;
-		}
-		75%{
-			transform: scale(3);
-			opacity: .25;
-		}
-		95%{
-			transform: scale(3.5);
-			opacity: 0;
-		}
-		100%{
-			transform: scale(0);
-			opacity: 0;
-		}
-	}
-	@keyframes iconTransform{
-		0%{
-			opacity: 1;
-			visibility: visible;
-		}
-		50%{
-			opacity: 0;
-			visibility: hidden;
-		}
-		100%{
-			opacity: 1;
-			visibility: visible;
-		}
-	}
+/* Default: listen__button */
+/* The Button */
+.section__listen .listen__button{
+	position: absolute;
+	z-index: 1;
+	width: 6em;
+	height: 6em;
+	color: var(--color-white);
+	background: #fc2043;
+	background: -moz-linear-gradient(top, #ff6235# 0%, #fc2043 100%);
+	background: -webkit-linear-gradient(top, #ff6235 0%,#fc2043 100%);
+	border-radius: 500px;
+	opacity: 0;
+	visibility: hidden;
+}
+.section__listen .listen__button > .button__icon{
+	width: 3em;
+	height: 3em;
+	fill: currentColor;
+	animation: animeMatchedIcon 1000ms linear repeat;
+	animation-play-state: paused;
+}
 
-	/* Section-matched */
-	.section-matched{
-		grid-area: 3 / 3 / 3 / 3;
-		align-self: end;
-		position: relative;
-		z-index: 300;
-		width: 100%;
-		height: 5em;
-		opacity: 0;
-		transform: translateY(-30%);
-		visibility: hidden;
-	}
-	.section-matched .matched--item{
-		display: block;
-		text-align: center;
-	}
-	.matched__artist, .matched__track{
-		font-size: 1.2rem;
-		line-height: 1.5rem;
-	}
-	.matched__artist{
-		font-weight: 700;
-	}
-	.matched__artist span,
-	.matched__track span{
-		font-size: .8rem;
-		font-style: italic;
-	}
-	
-	/* Mode: isMatched */
-	.isMatched .section-matched{
-		opacity: 1;
-		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		transform: translateY(-60%);
-		visibility: visible;
-	}
-	
-	/* Mode: isLyrics */
-	.isLyrics .section-matched{
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-		opacity: 0;
-		visibility: hidden;
-	}
-			
-	/* Section-lyrics */
-	.section-lyrics{
-		display: flex;
-		flex-direction: column;
-		align-self: center;
-		position: relative;
-		z-index: 500;
-		width: 100%;
-		height: 280px;
-		background: var(--color-white);
-		box-shadow: 0px 0px 10px var(--color-mercury);
-		opacity: 0;
-		transform: translateY(100%);
-		visibility: hidden;
-		grid-area: 2 / 2 / 4 / 5;
-		border-radius: 10px;
-		transition: opacity 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s,
-					transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s,
-					visibility 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
-	}
-	
-	/* Section-lyrics header */
-	.lyric-header{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-		height: 160px;
-		color: var(--color-white);
-		padding: 1em 1em 0;
-	}
-	.lyric-header__picture,
-	.lyric-header__track{
-		display: block;
-		flex: 1;
-	}
-	/* Section-lyrics header Picture/Img */
-	.lyric-header .lyric-header__picture > img{
-		width: 85px;
-		height: 85px;
-		border-radius: 500px;
-		opacity: 0;
-		visibility: hidden;
-		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
-	}
-	/* Section-lyrics header Artist info */
-	.lyric-header .lyric-header__track{
-		margin-top: .5em;
-		text-align: center;
-		opacity: 0;
-		visibility: hidden;
-		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) .4s;
-	}
-	.lyric-header__track .track-artist, 
-	.lyric-header__track .track-name{
-		line-height: 1.5rem;
-	}
-	.lyric-header__track .track-artist{
-		font-size: 1.2rem;
-		font-weight: 700;
-	}
-	.lyric-header__track .track-name span{
-		font-style: italic;
-	}
-	
-	/* Section-lyrics body */
-	.lyric-body{
-		display: flex;
-		width: 100%;
-		height: calc(100% - 160px);
-		align-items: stretch;
-		font-family: Poppins, sans-serif;
-		color: var(--color-white);
-		opacity: 0;
-		transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
-		visibility: hidden;		
-	}
-	.lyric-body p{
-		flex: 1;
-		line-height: 1.3rem;
-		text-align: center;		
-		white-space: pre-line;
-		word-break: break-word;
-	}
-	
-	/* Section-lyrics menu reset listen */
-	.lyric-menu{
-		display: flex;
-		flex-direction: row;
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: .5em;
-	}
-	.lyric-menu__item{
-		display: inline-block;
-		flex: 1;
-		margin: .25em .5em;
-		color: var(--color-white);
-		opacity: 0;
-		visibility: hidden;
-	}
-	.section-lyrics .lyric-menu .icon{
-		width: 1.5em;
-		height: 1.5em;
-		fill: currentColor;
-	}
-	
-	/* Mode: isLyrics */
-	.isLyrics .section-lyrics,
-	.isLyrics .lyric-menu__item:nth-child(1),
-	.isLyrics .lyric-header__picture > img,
-	.isLyrics .lyric-header__track,
-	.isLyrics .lyric-body {
-		opacity: 1;
-		visibility: visible;
-	}
-	.isLyrics .section-lyrics{
-		transition: all .8s cubic-bezier(0.455, 0.03, 0.515, 0.955) .3s;
-		transform: translateY(0);		
-	}
-	.isLyrics .lyric-menu .lyric-menu__item:nth-child(1){
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1.4s;
-	}
-	.isLyrics .lyric-header__picture > img{
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955) .8s;
-	}	
-	.isLyrics .lyric-header__track{
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955) .8s;
-	}	
-	.isLyrics .section-lyrics .lyric-body{
-		transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s;
-	}
+/* Default: Init CSS itens button effects */
+.section__listen .listen__borders,
+.section__listen .listen__waves{
+	display: flex;
+	position: absolute;
+	width: 6em;
+	height: 6em;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+}
 
-	
-/* Desktop < 1024px */
-@media screen and (max-width: 64em){
-	.sections {
-		grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
-		width: 100vw;
+/* Default: listen__borders */
+/* The Borders */
+.section__listen .listen__borders > span{
+	position: absolute;
+	border: 1px solid rgba(253, 094, 052, .95);
+	border-radius: 500px;
+	opacity: 0;
+	visibility: visible;
+	animation: animeListenBorder 5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite;
+	animation-play-state: paused;
+}
+.section__listen .listen__borders > span:nth-child(1){
+	--size: 6em;
+	width: calc(var(--size) * 2);
+	height: calc(var(--size) * 2);
+	animation-delay: 200ms;
+}
+.section__listen .listen__borders > span:nth-child(2){
+	--size: 10em;
+	width: calc(var(--size) * 2);
+	height: calc(var(--size) * 2);
+	animation-delay: 800ms;
+}
+.section__listen .listen__borders > span:nth-child(3){
+	--size: 14em;
+	width: calc(var(--size) * 2);
+	height: calc(var(--size) * 2);
+	animation-delay: 1400ms;
+}
+
+/* Default: listen__waves */
+/* The Waves */
+.section__listen .listen__waves > span{
+	display: block;
+	position: absolute;
+	width: 6rem;
+	height: 6rem;
+	background: #fc2043;
+	background: -moz-linear-gradient(top, #ff6533 0%, #fc2244 100%);
+	background: -webkit-linear-gradient(top, #ff6533 0%,#fc2244 100%);
+	border-radius: 500px;
+	opacity: .5;
+	animation-play-state: paused;
+}
+.section__listen .listen__waves > span:nth-child(1){
+	animation: animeListenWaves 2.5s linear 0ms infinite;
+	animation-play-state: paused;
+}
+.section__listen .listen__waves > span:nth-child(2){
+	animation: animeListenWaves 2.5s linear 500ms infinite;
+	animation-play-state: paused;
+}
+.section__listen .listen__waves > span:nth-child(3){
+	animation: animeListenWaves 2.5s linear 1000ms infinite;
+	animation-play-state: paused;
+}
+.section__listen .listen__waves > span:nth-child(4){
+	animation: animeListenWaves 2.5s linear 1500s infinite;
+	animation-play-state: paused;
+}
+.section__listen .listen__waves > span:nth-child(5){
+	animation: animeListenWaves 2.5s linear 2000ms infinite;
+	animation-play-state: paused;
+}
+
+/* Default: listen__track */
+/* Title Track */
+.section__listen .listen__track{
+	display: flex;
+	position: absolute;
+    min-height: 3em;
+    min-width: 6em;
+    margin-top: calc(4em + 1em); /* 1em == original margin */
+    flex-direction: column;
+    font-size: 1.2rem;
+    text-align: center;
+	opacity: 0;
+	transform: translateY(1em);
+	visibility: hidden;
+}
+.section__listen .listen__track .track__name{
+	font-weight: 700;
+}
+.section__listen .listen__track .track__name > span,
+.section__listen .listen__track .track__artist > span{
+	font-size: .8rem;
+	font-style: italic;
+}
+
+/* Default : */
+/* Container Lyrics */
+.section__lyrics{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 2em);
+    height: calc(100% - 64px - 1.5em);
+    top: calc(64px + .5em);
+    left: 1em;
+    font-family: 'Tauri', sans-serif;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px var(--color-mercury);
+	transform: translateY(.5em);
+	visibility: hidden;
+	transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.section__lyrics p{
+	width: 100%;
+	min-height: 1em;
+	color: #fff;
+}
+
+/* New Mode */
+/* Mode: isWaiting */
+.isWaiting .listen__button,
+.isWaiting .listen__borders{
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 2s linear 1s;
+}
+.isWaiting .section__listen > .listen__borders > span{
+	animation-play-state: running;
+}
+
+
+/* Mode: isFinding */
+.isFinding .listen__button,
+.isFinding .listen__waves{
+	opacity: 1;
+	visibility: visible;
+	transition: all 100ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.isFinding .listen__button{
+	animation: animeListenButton 500ms linear infinite;
+}
+
+.isFinding .listen__waves span{
+	animation-play-state: running !important;
+}
+
+/* Mode: isMatched */
+.isMatched .listen__button {
+	opacity: 1;
+	visibility: visible;
+	transition-delay: 0s;
+}
+.isLyrics .listen__button {
+	transition-delay: 0s;
 	}
-	
-	.section-matched{
-		width: calc(100% - 2em);
-		transform: translateY(0%);
-		grid-area: 3 / 1 / 3 / 6;
-		margin: 0px 1em;
+.isMatched .listen__button > .button__icon{
+	animation-delay: 500ms;
+	animation-play-state: running;
+}
+.isMatched .section__listen > .listen__waves{
+	opacity: 1;
+	visibility: visible;
+}
+.isMatched .section__listen > .listen__waves > span{
+	animation-duration: 1500ms;
+	animation-iteration-count: 2;
+	animation-direction: reverse;
+	animation-play-state: running;
+}
+.isMatched .section__listen > .listen__waves > span:nth-child(1){
+	animation-delay: 250ms;
+}
+.isMatched .section__listen > .listen__waves > span:nth-child(2){
+	animation-delay: 500ms;
+}
+.isMatched .section__listen > .listen__waves > span:nth-child(3){
+	animation-delay: 750ms;
+}
+.isMatched .section__listen > .listen__waves > span:nth-child(4){
+	animation-delay: 1000ms;
+}
+.isMatched .section__listen > .listen__waves > span:nth-child(5){
+	animation-delay: 1250ms;
+}
+
+.isMatched .section__listen .listen__track{
+	opacity: 1;
+	transform: translateY(0);
+	visibility: visible;
+	transition: transform 500ms linear;
+}
+
+
+/* Mode: isLyrics */
+.isLyrics .header__reset, 
+.isLyrics .header__track{
+	opacity: 1;
+	visibility: visible;
+	transition: all 500ms linear;
+}
+
+.isLyrics .section__listen > .listen__waves > span{
+	animation: animeListenWaves 0s linear 0s 1;
+	animation-play-state: running;
+}
+
+.isLyrics .section__lyrics{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition-duration: 1000ms;
+}
+
+
+/* Responsive > 880px */
+@media screen and (min-width: 55em) {
+	.section__lyrics{
+		padding: 6em 4em;
 	}
-	
-	.section-lyrics{
-		width: calc(100% - 2em);
-		grid-area: 2 / 1 / 4 / 6;
-		margin: 0px 1em;
-	}
-	
-	/* isMatched */
-	.isMatched .section-matched {
-		transform: translateY(-25%);
+	.section__lyrics p{
+		margin: 0 0 .8em;
+		max-width: 70%;
+	    font-size: 3.5em;
 	}
 }
-/* Large Desktop 1920px */
-@media screen and (min-width: 64em){
-	.section-matched{
-		align-self: center;
-		transform: translateY(0%);
+
+/* Responsive < 880px */
+@media screen and (max-width: 55em) {
+	.section__lyrics{
+		padding: 2em 0 2em 1em;
 	}
-	/* isMatched */
-	.isMatched .section-matched {
-		transform: translateY(-20%);
+	.section__lyrics p{
+		margin: 0 0 .8em;
+		max-width: 95%;
+	    font-size: 1.8em;
+	}
+}
+
+
+
+
+/* CSS Animation */
+@keyframes animeListenButton{
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.05);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes animeListenBorder{
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+@keyframes animeListenWaves{
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(2);
+		opacity: .5;
+	}
+	75%{
+		transform: scale(3);
+		opacity: .25;
+	}
+	95%{
+		transform: scale(3.5);
+		opacity: 0;
+	}
+	100%{
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+@keyframes animeMatchedIcon{
+	0%{
+		opacity: 1;
+	}
+	45%{
+		opacity: 0;
+	}
+	65%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
 	}
 }
