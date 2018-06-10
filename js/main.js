@@ -170,7 +170,7 @@
 		}
  	}
 
-	class MusicXMatch{
+	class MusiXMatch{
 		constructor(el){
 			this.DOM = el;
 			this.EL = {};
@@ -230,5 +230,5 @@
 
 	}
 
-	new MusicXMatch(document.querySelector('main'));
+	new MusiXMatch(document.querySelector('main'));
 }
