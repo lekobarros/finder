@@ -5,7 +5,7 @@ Inspired by the animation of identifying a song in the MusiXMatch application on
 ## Features:
 - CSS Flexbox.
 - CSS Variables
-- ES6 features.
+- ES6.
 
 ## Compatibility
 - Only modern browsers.

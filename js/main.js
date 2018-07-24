@@ -30,11 +30,14 @@
 			["#FBDA61", "#FF5ACD"],
 			["#0093E9", "#80D0C7"],
 			["#FF9A8B", "#FF99AC"],
-			["#08AEEA", "#2AF598"]
+			["#08AEEA", "#2AF598"],
+			["#0F2027", "#2C5364"],
+			["#56ab2f", "#a8e063"],
+			["#D31027", "#EA384D"]
 		],
 		timeMatch : {
 			find : 3000,
-			changeIcon : 1000,
+			changeIcon : 200,
 			showLyrics : 1500
 		},
 		artist : [
@@ -96,9 +99,24 @@
 						"Well you should know by now my heart is in your teeth."
 					]
 				}
+      },
+      {
+				"name" : "Galantis",
+				"track" : {
+					"id" : 1,
+					"name" : "Spaceship <span>(Feat. Uffie)</span>",
+					"album" : "Spaceship (Feat. Uffie)",
+					"image" : "spaceship.jpg",
+					"lyrics" : [
+						"Hey, I found a spaceship",
+            "You got the kinda love that's taking me new places",
+            "Hey, I'm on a spaceship",
+            "You got the kinda love that's taking me new places"
+					]
+				}
 			}
 		]
-	}
+	};
 
  	class Track{
  		constructor(el){
